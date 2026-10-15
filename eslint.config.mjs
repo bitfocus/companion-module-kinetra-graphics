@@ -7,8 +7,8 @@ const base = await generateEslintConfig({
 export default [
 	...base,
 	{
-		// Tests and the test runner aren't shipped: they may import dev dependencies.
-		files: ['vitest.config.ts', 'test/**/*.ts'],
+		// Tests, the test runner and scripts aren't shipped: they may import dev dependencies and dist/.
+		files: ['vitest.config.ts', 'test/**/*.ts', 'scripts/**/*.mjs'],
 		rules: {
 			'n/no-unpublished-import': 'off',
 		},
