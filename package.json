@@ -1,6 +1,6 @@
 {
 	"name": "kinetra-graphics",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Bitfocus Companion module for Kinetra broadcast graphics",
 	"main": "dist/main.js",
 	"type": "module",
