@@ -18,7 +18,7 @@ against Kinetra's with `node scripts/sync-fixture.mjs --check`. Update it with
 
 ## Developing
 
-Needs Node 26 and yarn 4 (`corepack yarn …` works without installing yarn).
+Needs Node 26 (Node 24 works for development) and yarn 4 (`corepack enable` provides it).
 
 ```sh
 yarn            # install
@@ -34,8 +34,29 @@ Load it in Companion from a developer modules folder (Companion › Settings ›
 
 ## Layout
 
-- `src/main.ts`: the Companion instance (config, status, wiring).
-- `src/kinetra/`: the protocol (connection, state, model), free of Companion types.
+- `src/main.ts`: the Companion instance. Keeps Companion in step with Kinetra:
+  - definitions are rebuilt only when Kinetra's structure changes (names, order, field keys), and
+    kept while Kinetra is away
+  - only changed variable values are sent
+  - only the feedbacks of the touched parts are re-checked
+  - one 1 s tick runs only while a timer runs or media plays
+- `src/kinetra/`: the protocol, free of Companion types:
+  - `client.ts`: the connection, its retry rules and commands
+  - `state.ts`: the snapshot and diffs
+  - `model.ts`: choices, the structure key, variable ids
+  - `display.ts`: timers and media as Kinetra shows them
 - `src/actions.ts`, `feedbacks.ts`, `variables.ts`, `presets.ts`: definitions built from Kinetra's
-  state.
-- `test/`: tests, the fixture and a mock Kinetra server.
+  state, through the small `Host` interface (`src/host.ts`), so tests can drive them.
+- `src/status.ts`: the connection's status in Companion's words.
+- `test/`: tests, the fixture, a mock Kinetra server (`mock-kinetra.ts`) and a fake host.
+
+## Testing
+
+`yarn test` covers:
+
+- the protocol against Kinetra's fixture: every command example is sent exactly by a module action
+- the client against the mock Kinetra: every status and retry rule
+- the definitions
+- the instance with Companion stubbed
+
+Before a release, also go through [TESTING.md](./TESTING.md) with Kinetra and Companion.
