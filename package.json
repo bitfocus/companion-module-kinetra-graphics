@@ -14,7 +14,8 @@
 		"lint:raw": "eslint",
 		"lint": "run lint:raw .",
 		"test": "vitest run",
-		"test:watch": "vitest"
+		"test:watch": "vitest",
+		"live-check": "node scripts/live-check.mjs"
 	},
 	"license": "MIT",
 	"author": "Rørvik Medieteknikk <hello@kinetra.live>",

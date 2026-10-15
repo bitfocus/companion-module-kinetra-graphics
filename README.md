@@ -27,6 +27,7 @@ yarn dev        # compile on change
 yarn test       # unit and protocol tests (vitest), against the fixture and a mock Kinetra
 yarn lint
 yarn package    # the .tgz Companion installs
+KINETRA_TOKEN=kt_… yarn live-check   # after yarn build: connect to a running Kinetra (changes nothing)
 ```
 
 Load it in Companion from a developer modules folder (Companion › Settings › Developer).
