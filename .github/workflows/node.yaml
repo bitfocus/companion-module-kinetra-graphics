@@ -73,3 +73,6 @@ jobs:
           yarn test
         env:
           CI: true
+      - name: Check the fixture against Kinetra's
+        run: |
+          node scripts/sync-fixture.mjs --check

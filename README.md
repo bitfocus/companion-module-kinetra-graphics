@@ -11,8 +11,10 @@ Users: see [companion/HELP.md](./companion/HELP.md). License: [MIT](./LICENSE).
 
 Kinetra documents the Control API in its repository (`docs/CONTROL_API.md`) and generates
 `docs/control-api.fixture.json` from its code: the protocol's constants and a real example of
-every message and command. `test/fixture/control-api.fixture.json` is a copy of it; the tests
-check the module against it.
+every message and command. `test/fixture/control-api.fixture.json` is a copy of it at a recorded
+commit (`test/fixture/source.json`); the tests check the module against it, and CI checks the copy
+against Kinetra's with `node scripts/sync-fixture.mjs --check`. Update it with
+`node scripts/sync-fixture.mjs <commit>` (or `--from <a Kinetra checkout>`).
 
 ## Developing
 
