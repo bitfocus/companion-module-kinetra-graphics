@@ -1,0 +1,28 @@
+{
+	"$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
+	"type": "connection",
+	"id": "kinetra-graphics",
+	"name": "Kinetra",
+	"shortname": "kinetra",
+	"description": "Take and clear Kinetra graphics, update fields and run cues, with Program and Preview tally.",
+	"version": "0.0.0",
+	"license": "MIT",
+	"repository": "git+https://github.com/bitfocus/companion-module-kinetra-graphics.git",
+	"bugs": "https://github.com/bitfocus/companion-module-kinetra-graphics/issues",
+	"maintainers": [
+		{
+			"name": "Ludvig",
+			"email": "hello@kinetra.live"
+		}
+	],
+	"runtime": {
+		"type": "node26",
+		"api": "nodejs-ipc",
+		"apiVersion": "0.0.0",
+		"entrypoint": "../dist/main.js"
+	},
+	"legacyIds": [],
+	"manufacturer": "Kinetra",
+	"products": ["Kinetra"],
+	"keywords": ["graphics", "lower thirds", "CG", "titles", "broadcast", "tally", "OBS", "vMix"]
+}

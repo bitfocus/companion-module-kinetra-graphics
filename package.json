@@ -1,0 +1,60 @@
+{
+	"name": "kinetra-graphics",
+	"version": "0.1.0",
+	"description": "Bitfocus Companion module for Kinetra broadcast graphics",
+	"main": "dist/main.js",
+	"type": "module",
+	"scripts": {
+		"postinstall": "husky",
+		"format": "prettier -w .",
+		"package": "run build && companion-module-build",
+		"build": "rimraf dist && run build:main",
+		"build:main": "tsc -p tsconfig.build.json",
+		"dev": "tsc -p tsconfig.build.json --watch",
+		"lint:raw": "eslint",
+		"lint": "run lint:raw .",
+		"test": "vitest run",
+		"test:watch": "vitest"
+	},
+	"license": "MIT",
+	"author": "Rørvik Medieteknikk <hello@kinetra.live>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bitfocus/companion-module-kinetra-graphics.git"
+	},
+	"bugs": {
+		"url": "https://github.com/bitfocus/companion-module-kinetra-graphics/issues"
+	},
+	"engines": {
+		"node": "^26",
+		"yarn": "^4"
+	},
+	"dependencies": {
+		"@companion-module/base": "~2.1.3",
+		"ws": "^8.22.0"
+	},
+	"devDependencies": {
+		"@companion-module/tools": "^3.1.1",
+		"@types/node": "^26.6.4",
+		"@types/ws": "^8.18.1",
+		"eslint": "^10.12.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.6.0",
+		"prettier": "^3.9.9",
+		"rimraf": "^6.1.3",
+		"typescript": "~6.0.3",
+		"typescript-eslint": "^8.71.0",
+		"vite": "~8.3.2",
+		"vitest": "~5.0.3"
+	},
+	"prettier": "@companion-module/tools/.prettierrc.json",
+	"lint-staged": {
+		"*.{css,json,md,scss}": [
+			"prettier --write"
+		],
+		"*.{ts,tsx,js,jsx}": [
+			"yarn lint:raw --fix"
+		]
+	},
+	"packageManager": "yarn@4.18.1"
+}
