@@ -183,3 +183,20 @@ export function parseMessage(text: string): ServerMessage | null {
 			return null
 	}
 }
+
+/** A state with nothing in it (definitions while not connected). */
+export const EMPTY_STATE: State = {
+	screens: {},
+	screen_order: [],
+	templates: {},
+	layers: {},
+	cue_lists: {},
+	cue_list_order: [],
+	api_flows: {},
+	sources: {},
+	source_order: [],
+	automation_off: false,
+	studio_mode: false,
+	preview: {},
+	assets: [],
+}
