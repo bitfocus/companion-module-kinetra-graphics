@@ -4,6 +4,12 @@ Control [Kinetra](https://kinetra.live) graphics from Companion: take and clear 
 their text, run cues, step through sources and take Studio Preview, with red (on air) and green
 (Preview) tally on your buttons.
 
+### Kinetra version
+
+The module needs Kinetra's Control API, which is in **Kinetra Canary 0.1.0-canary.20261016.17 or
+later** (download it at [kinetra.live](https://kinetra.live), under Canary builds). It isn't in a
+stable Kinetra release yet; once it is, any stable version from then on works too.
+
 ### Setup
 
 1. In Kinetra, open **Preferences › Network & API › Control API**, turn it on and click
